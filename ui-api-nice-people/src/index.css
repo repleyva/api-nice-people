@@ -26,3 +26,15 @@ body {
   overflow-x: hidden;
 }
 
+.btn {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.199) !important;
+	transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+

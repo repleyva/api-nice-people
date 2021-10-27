@@ -1,11 +1,12 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { useState } from "react";
 import "../css/search.css";
 import History from "./History";
 import InputSearch from "./InputSearch";
 
-const Search = () => {
+const Search = ({ existData, handleSearch }) => {
   return (
-    <div className="search">
+    <div className={`search ${!existData && "search-center"}`}>
       <div className="title-container">
         <div className="title">
           <Typography variant="h3" className="title__text">
@@ -20,8 +21,8 @@ const Search = () => {
         </div>
       </div>
       <div className="search-cities">
-        <InputSearch />
-				<History/>
+        <InputSearch handleSearch={handleSearch}/>
+        <History />
       </div>
     </div>
   );
