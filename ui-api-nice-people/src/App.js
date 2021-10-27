@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { helpHttps } from "./helpers/helpHttps";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
+/* import "bootstrap/dist/css/bootstrap.min.css";*/
+import "weather-icons/css/weather-icons.css"; 
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -22,6 +24,7 @@ function App() {
     const fetchData = async () => {
       setLoading(true);
       const request = await api.get(base_url_weather);
+			console.log(request);
       setLoading(false);
       setWeather(request);
       return request;
@@ -43,7 +46,7 @@ function App() {
         <Loader />
       ) : weather ? (
         weather.error ? (
-          <Error/>
+          <Error />
         ) : (
           <Weather weather={weather} />
         )
