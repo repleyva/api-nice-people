@@ -8,13 +8,14 @@ import { helpHttps } from "./helpers/helpHttps";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
 /* import "bootstrap/dist/css/bootstrap.min.css";*/
-import "weather-icons/css/weather-icons.css"; 
+import "weather-icons/css/weather-icons.css";
 
 function App() {
   const [weather, setWeather] = useState(null);
   const [news, setNews] = useState(false);
   const [search, setSearch] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [online, setOnline] = useState(true);
 
   let api = helpHttps();
   const API_KEY_WEATHER = "7811643fbf7e9082211e1353c932fab0";
@@ -24,12 +25,17 @@ function App() {
     const fetchData = async () => {
       setLoading(true);
       const request = await api.get(base_url_weather);
-			console.log(request);
+      console.log(request);
       setLoading(false);
       setWeather(request);
       return request;
     };
-    if (search !== null && search !== "") fetchData();
+    if (navigator.onLine) {
+      setOnline(true);
+      if (search !== null && search !== "") fetchData();
+    } else {
+      setOnline(false);
+    }
   }, [base_url_weather]); // cuando search cambie entonces se ejecuta el efecto
 
   const handleSearch = (query) => {
@@ -42,16 +48,20 @@ function App() {
         existData={(weather && !weather.error) || news}
         handleSearch={handleSearch}
       />
-      {loading ? (
-        <Loader />
-      ) : weather ? (
-        weather.error ? (
-          <Error />
+      {online ? (
+        loading ? (
+          <Loader />
+        ) : weather ? (
+          weather.error ? (
+            <Error />
+          ) : (
+            <Weather weather={weather} />
+          )
         ) : (
-          <Weather weather={weather} />
+          ""
         )
       ) : (
-        ""
+        <Error />
       )}
 
       {news && <News />}

@@ -10,7 +10,6 @@ const Weather = ({ weather }) => {
   let temp = conversor(weather.main.temp, "F");
   let temp_max = conversor(weather.main.temp_max, "F");
   let temp_min = conversor(weather.main.temp_min, "F");
-
   const icon = getIcon(icons, weather.weather[0].id);
 
   return (
