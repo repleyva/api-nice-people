@@ -1,0 +1,60 @@
+.search {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	margin-top: 1rem;
+}
+
+.title-container {
+  width: 80%;
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.title__text {
+  font-weight: 900 !important;
+  font-size: 4rem !important;
+}
+
+.subtitle {
+  color: #fff;
+  text-align: center;
+}
+
+.subtitle__text {
+  font-weight: 700 !important;
+}
+
+.search-cities {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.search-nav {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  min-width: 300px;
+  padding-left: 10px;
+}
+
+.input-search {
+  font-size: 1.2rem !important;
+  color: #fff !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.9rem !important;
+}
+
+.search-icon {
+  color: #fff;
+}
