@@ -1,11 +1,12 @@
+import { useContext } from "react";
+import AppContext from "../context/AppContext";
 import "../css/weather.css";
+import { conversor } from "../helpers/conversor";
 import { getIcon, icons } from "../helpers/getIcon";
 
-const Weather = ({ weather }) => {
-  let conversor = function (numero = 0, temp = "") {
-    const c = Math.floor(numero - 273.15);
-    return c;
-  };
+const Weather = () => {
+
+  const { weather } = useContext(AppContext);
 
   let temp = conversor(weather.main.temp, "F");
   let temp_max = conversor(weather.main.temp_max, "F");
@@ -18,7 +19,6 @@ const Weather = ({ weather }) => {
         <h1 className="icon-weather">
           <i className={`wi ${icon}`}></i>
         </h1>
-        {/* <img src="assets/rainy-day.png" alt="weather" /> */}
         <div className="info__weather">
           <h3>Today</h3>
           <h1>

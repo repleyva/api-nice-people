@@ -1,9 +1,11 @@
 import { Button, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import History from "./History";
+import AppContext from "../context/AppContext";
 
-const InputSearch = ({ handleSearch }) => {
+const InputSearch = () => {
+  const { handleSearch } = useContext(AppContext);
   const [query, setQuery] = useState(null);
 	const send = (e) => {
 		if (e.key === "Enter") {

@@ -2,7 +2,6 @@ import "../css/alert.css";
 import Alert from "./Alert";
 
 const Error = () => {
-
   return (
     <Alert
       img={"assets/error-404-not-found.jpg"}
