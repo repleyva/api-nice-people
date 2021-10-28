@@ -4,6 +4,11 @@ import { useState } from "react";
 
 const InputSearch = ({ handleSearch }) => {
   const [query, setQuery] = useState(null);
+	const send = (e) => {
+		if (e.key === "Enter") {
+			handleSearch(query);
+		}
+	}
   return (
     <div className="search-container">
       <nav className="search-nav">
@@ -13,6 +18,7 @@ const InputSearch = ({ handleSearch }) => {
           placeholder="Write the name of a city..."
           inputProps={{ className: "input-search" }}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyPress={send}
         />
       </nav>
       <Button className="btn" onClick={() => handleSearch(query)}>
