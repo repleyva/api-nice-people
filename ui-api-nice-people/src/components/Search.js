@@ -1,5 +1,4 @@
-import { Button, Typography } from "@mui/material";
-import { useState } from "react";
+import { Typography } from "@mui/material";
 import "../css/search.css";
 import History from "./History";
 import InputSearch from "./InputSearch";

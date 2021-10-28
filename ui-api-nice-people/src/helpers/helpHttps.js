@@ -16,7 +16,7 @@ export const helpHttps = () => {
     options.body = JSON.stringify(options.body) || false;
     if (!options.body) delete options.body; // si body es false entonces eliminalo
 
-    console.log(options);
+    //console.log(options);
     setTimeout(() => {
       controller.abort();
     }, 3000);

@@ -35,3 +35,25 @@
   transition: all 0.3s ease-in-out;
 	gap: 1rem;
 }
+
+.news-item {
+	display: flex !important;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.btn_see_more {
+	background-color: rgba(114, 114, 114, 0.199) !important;
+	transition: all 0.3s ease;
+	padding: 5px 12px !important;
+}
+
+.btn_see_more a {
+	color: #444 !important;
+	transition: all 0.3s ease;
+}
+
+.btn_see_more:hover {
+  background-color: transparent !important;
+  color: #000 !important;
+}
