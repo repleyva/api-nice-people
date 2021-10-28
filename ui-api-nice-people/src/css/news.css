@@ -43,6 +43,13 @@
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
+	transform: scale(1);	
+  transition: all 0.3s ease-in-out;
+}
+
+
+.news-item:hover {
+	transform: scale(1.05);	
 }
 
 

@@ -21,14 +21,14 @@ const AppProvider = ({ children }) => {
       ]);
       setLoading(false);
       setWeather(weatherRes);
-      if (newsRes !== null && newsRes.articles.length !== 0) {
-        newsRes.articles.forEach((el) => {
+      if (newsRes !== null && newsRes.data.length !== 0) {
+        newsRes.data.forEach((el) => {
           let new_el = {
             author: el.author,
             title: el.title,
             desc: el.description,
             url: el.url,
-            image: el.urlToImage,
+            image: el.image,
           };
           // destructura lo que trae la varible news
           setNews((news) => [...news, new_el]);
