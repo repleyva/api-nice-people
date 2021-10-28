@@ -7,15 +7,15 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 
 export default function NewsItem({ el }) {
   return (
-    <Card sx={{ maxWidth: 345 }} className="news-item">
+    <Card  className="news-item">
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="250"
           image={
             el.image ? el.image : "https://wallpaperaccess.com/full/2112542.jpg"
           }
-          alt="green iguana"
+          alt="img"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

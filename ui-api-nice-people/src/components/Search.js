@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material";
 import "../css/search.css";
-import History from "./History";
 import InputSearch from "./InputSearch";
 
 const Search = ({ existData, handleSearch }) => {
@@ -21,7 +20,6 @@ const Search = ({ existData, handleSearch }) => {
       </div>
       <div className="search-cities">
         <InputSearch handleSearch={handleSearch}/>
-        <History />
       </div>
     </div>
   );

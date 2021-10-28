@@ -1,8 +1,8 @@
 .weather-container {
   width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .weather {
@@ -17,9 +17,9 @@
 }
 
 .icon-weather {
-	font-size: 8rem;
-	margin: 0;
-	color: #fff;
+  font-size: 8rem;
+  margin: 0;
+  color: #fff;
 }
 
 .info__weather {
@@ -40,4 +40,51 @@
 .info__weather h4 {
   margin: 0;
   margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  .weather {
+    padding: 1rem;
+		margin: 1rem 1rem;
+  }
+
+  .info__weather h1 {
+    font-size: 1.5rem;
+  }
+
+  .info__weather h3 {
+    font-size: 1rem;
+  }
+
+  .info__weather h4 {
+    font-size: 0.8rem;
+  }
+
+  .icon-weather {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .weather {
+    justify-content: space-around;
+    padding: 1rem;
+		gap: 1rem;
+  }
+
+  .info__weather h1 {
+    font-size: 1rem;
+  }
+
+  .info__weather h3 {
+    font-size: 0.8rem;
+  }
+
+  .info__weather h4 {
+    font-size: 0.5rem;
+  }
+
+  .icon-weather {
+    font-size: 4rem;
+  }
 }

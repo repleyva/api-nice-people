@@ -1,6 +1,7 @@
 import { Button, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
+import History from "./History";
 
 const InputSearch = ({ handleSearch }) => {
   const [query, setQuery] = useState(null);
@@ -21,9 +22,12 @@ const InputSearch = ({ handleSearch }) => {
           onKeyPress={send}
         />
       </nav>
-      <Button className="btn" onClick={() => handleSearch(query)}>
-        Search
-      </Button>
+      <div className="buttons">
+        <Button className="btn" onClick={() => handleSearch(query)}>
+          Search
+        </Button>
+        <History />
+      </div>
     </div>
   );
 };
