@@ -1,7 +1,6 @@
 import { Button, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useContext, useState } from "react";
-import History from "./History";
 import AppContext from "../context/AppContext";
 
 const InputSearch = () => {
@@ -28,7 +27,6 @@ const InputSearch = () => {
         <Button className="btn" onClick={() => handleSearch(query)}>
           Search
         </Button>
-        <History />
       </div>
     </div>
   );
