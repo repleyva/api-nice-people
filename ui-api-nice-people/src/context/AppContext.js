@@ -34,30 +34,34 @@ const AppProvider = ({ children }) => {
             };
             setNews((news) => [...news, new_el]);
           });
-        } 
+        }
       } else {
         setWeather(JSON.parse(request).results[0]);
         setNews(JSON.parse(request).results[0]);
-			}
+      }
     };
     if (navigator.onLine) {
       setOnline(true);
       if (search !== null && search !== "") fetchData();
+			setSearch(null);
     } else {
       setOnline(false);
     }
   }, [base_url, search]); // cuando search cambie entonces se ejecuta el efecto
 
   const handleSearch = (query) => {
-    setSearch(query);
-    setNews([]);
-    setWeather(null);
+    if (query !== null || !query) {
+      setNews([]);
+      setWeather(null);
+      setSearch(query);
+    } else {
+      setSearch(query);
+		}
   };
 
   const data = {
     weather,
     news,
-    search,
     handleSearch,
     online,
     loading,
