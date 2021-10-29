@@ -16,25 +16,29 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-			const request = await helpHttps().get(base_url);
+      const request = await helpHttps().get(base_url);
       setLoading(false);
-			const json = JSON.parse(request)
-			const weatherRes = JSON.parse(json.results[0].weather);
-			const newsRes = JSON.parse(json.results[1].news);
-      setWeather(weatherRes);
-      if (newsRes !== null && newsRes.data.length !== 0) {
-        newsRes.data.forEach((el) => {
-          let new_el = {
-            author: el.author,
-            title: el.title,
-            desc: el.description,
-            url: el.url,
-            image: el.image,
-          };
-          // destructura lo que trae la varible news
-          setNews((news) => [...news, new_el]);
-        });
-      }
+      const json = JSON.parse(request);
+      if (!json.results[0].cod) {
+        const weatherRes = JSON.parse(json.results[0].weather);
+        const newsRes = JSON.parse(json.results[1].news);
+        setWeather(weatherRes);
+        if (newsRes !== null && newsRes.data.length !== 0) {
+          newsRes.data.forEach((el) => {
+            let new_el = {
+              author: el.author,
+              title: el.title,
+              desc: el.description,
+              url: el.url,
+              image: el.image,
+            };
+            setNews((news) => [...news, new_el]);
+          });
+        } 
+      } else {
+        setWeather(JSON.parse(request).results[0]);
+        setNews(JSON.parse(request).results[0]);
+			}
     };
     if (navigator.onLine) {
       setOnline(true);

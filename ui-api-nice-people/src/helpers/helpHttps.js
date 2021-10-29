@@ -27,8 +27,11 @@ export const helpHttps = () => {
           ? res.json()
           : Promise.reject({
               error: true,
-              status: res.status || "00",
-              statusText: res.statusText || "Ocurrió un error",
+              status: res.status || JSON.parse(res).results[0].cod || "00",
+              statusText:
+                res.statusText ||
+                JSON.parse(res).results[0].message ||
+                "Ocurrió un error",
             })
       )
       .catch((error) => error);

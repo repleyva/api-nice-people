@@ -35,7 +35,7 @@ const renderNews = (news, title) => {
 
 function App() {
   const { weather, news, online, loading } = useContext(AppContext);
-
+	
   return (
     <div className={"App"}>
       <Search />
